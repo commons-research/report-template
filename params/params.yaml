@@ -1,0 +1,16 @@
+paths:
+  tmp: '../docs/mapp_project_00022/mapp_batch_00038/results/tmp'
+  mzmine: '../docs/mapp_project_00022/mapp_batch_00038/results/mzmine'
+  report: '../docs/mapp_project_00022/mapp_batch_00038/results/report'
+  cytoscape: '../docs/mapp_project_00022/mapp_batch_00038/results/cytoscape'
+  clusterinfo: '../docs/mapp_project_00022/mapp_batch_00038/results/met_annot_enhancer/ProteoSAFe-FEATURE-BASED-MOLECULAR-NETWORKING-25d5bf62-download_cytoscape_data/clusterinfo_summary'
+  dbresults: '../docs/mapp_project_00022/mapp_batch_00038/results/met_annot_enhancer/ProteoSAFe-FEATURE-BASED-MOLECULAR-NETWORKING-25d5bf62-download_cytoscape_data/DB_result'
+filenames:
+  excel: 'SE_Long_AS_report_20221106.xls'
+  resumed_quant: 'resumed_quant.csv'
+  target_cid_list: 'emass_SE_cid.csv'
+  target_quant_list: 'mapp_batch_00038_targeted2.csv'
+  clusterinfo: '38ee1dbce4904614affeddbb1c2e5b64.tsv'
+  dbresults: '1f9b7723e2b84c9c8b63a9811c14c6ef.tsv'
+  mndata: 'mn-data.csv'
+

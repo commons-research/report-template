@@ -1,0 +1,147 @@
+---
+title: 'Report title'
+subtitle: |
+  Report subtitle
+  ---
+
+
+  ![](../docs/ressources/img/logo_unifr.png){width=1in}
+
+
+author:
+  - name: My Name
+    email: my.email@unifr.ch
+    institute: [unifr]
+    correspondence: true
+institute:
+  - unifr: COMMONS Lab, Department of Biology, University of Fribourg, Switzerland
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  bookdown::html_document2:
+    df_print: paged
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    code_download: TRUE
+    code_folding: hide
+    fig_caption: yes
+    number_sections: yes
+    global_numbering: true
+  bookdown::word_document2: default
+  bookdown::pdf_document2:
+    toc: no
+    # toc_depth: 2
+    fig_caption: yes
+    number_sections: true
+    keep_tex: yes
+    latex_engine: lualatex
+    includes:
+      in_header: my_header.txt
+    pandoc_args:
+      - '--lua-filter=scholarly-metadata.lua'
+      - '--lua-filter=author-info-blocks.lua'
+always_allow_html: yes
+bibliography: 
+  - references.bib
+csl: plos-one.csl
+link-citations: yes
+latex_engine: lualatex
+urlcolor: blue
+linkcolor: blue
+## include-before:
+## - '`\newpage{}`{=latex}'
+header-includes:
+- \usepackage{lastpage}
+- \usepackage{fancyhdr}
+- \usepackage{hyperref}
+- \definecolor{col1}{HTML}{337AB7}
+- \hypersetup{colorlinks = true, linkcolor = black, urlcolor = blue, citecolor = blue}
+- \fancypagestyle{ttlpage}{\fancyfoot[C]{{\thepage} of \pageref{LastPage}}}
+- \thispagestyle{ttlpage}
+- \pagestyle{fancy}
+- \fancyhead[EL,OL]{\rightmark}
+- \fancyhead[EC,OC]{}
+- \fancyhead[ER,OR]{Report}
+- \fancyfoot[EC,OL]{\textbf{UniFr}}
+- \fancyfoot[EL,OC]{\textbf{COMMONS Lab}}
+- \fancyfoot[ER,OR]{{\thepage} of \pageref{LastPage}}
+---
+
+
+<!-- Here we are using a specific option to have the code fold/show option active in html output and inactive when outputting pdf. See https://stackoverflow.com/a/68552649/4908629 -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = knitr::is_html_output())
+knitr::opts_chunk$set(webshot = "webshot") # workaround for the following issue : https://github.com/rstudio/rmarkdown/issues/2460
+## Displays blank instead of NA for missing values
+options(knitr.kable.NA = '') 
+```
+
+
+```{r message=FALSE, warning = FALSE}
+## library(here)
+library(knitr)
+library(rmarkdown)
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(readxl)
+library(yaml)
+library(plyr)
+library(plotly)
+library(downloadthis)
+library(kableExtra)
+library(gtsummary)
+```
+
+```{r}
+params <- yaml.load_file("../params/params.yaml")
+```
+
+```{r}
+source('../src/functions_report.R')
+```
+
+```{r, results='asis'}
+## This code chunk allows to add a new page in the pdf output
+# if (knitr::is_latex_output()) {
+#   cat("\\newpage")
+# }
+```
+
+<!-- ```{=latex}
+\setcounter{tocdepth}{2}
+\tableofcontents
+``` -->
+
+---
+
+
+---
+
+
+
+# Introduction and Objectives
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec nunc nec nunc. Donec auctor, nunc nec  
+
+
+# Literature Review and References
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec nunc nec nunc. Donec auctor, nunc nec  
+
+
+# Methodology
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec nunc nec nunc. Donec auctor, nunc nec  
+
+
+# Results and Analysis
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec nunc nec nunc. Donec auctor, nunc nec  
+
+# Discussion & Conclusion
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec nunc nec nunc. Donec auctor, nunc nec  
+
+
+# References

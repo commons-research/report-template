@@ -1,0 +1,31 @@
+\usepackage{float}
+%\usepackage{helvet}
+%\renewcommand\familydefault{\sfdefault}
+
+\usepackage{fancyhdr}
+
+\let\oldsection\section
+\renewcommand\section{\oldsection}
+
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+  \expandafter\origfigure\expandafter[H]
+} {
+  \endorigfigure
+}
+
+\usepackage{emoji}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
